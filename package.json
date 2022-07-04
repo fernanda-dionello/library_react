@@ -26,6 +26,11 @@
       "react-app/jest"
     ]
   },
+  "browser": {
+    "os": false,
+    "path": false,
+    "fs": false
+  },
   "browserslist": {
     "production": [
       ">0.2%",

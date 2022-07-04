@@ -6,7 +6,6 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import { useParams } from 'react-router-dom';
-import { REACT_APP_TOKEN } from "../../env_variables";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -35,7 +34,7 @@ function UpdateClient() {
   useEffect(() => {
     fetch(`https://library-website-fullstack.herokuapp.com/client/${id}`, {
       headers: {
-        'x-session-token': REACT_APP_TOKEN
+        'x-session-token':sessionStorage.getItem('token')
       },
     })
       .then(res => res.json())
@@ -59,7 +58,7 @@ function UpdateClient() {
       headers: {
         Accept: 'application/form-data',
         'Content-Type': 'application/json',
-        'x-session-token': REACT_APP_TOKEN
+        'x-session-token': sessionStorage.getItem('token')
       },
       body: JSON.stringify(data),
     })

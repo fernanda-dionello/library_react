@@ -5,7 +5,6 @@ import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import { REACT_APP_TOKEN } from "../../env_variables";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -41,7 +40,7 @@ function CreateClient() {
       headers: {
         Accept: 'application/form-data',
         'Content-Type': 'application/json',
-        'x-session-token': REACT_APP_TOKEN
+        'x-session-token': sessionStorage.getItem('token')
       },
       body: JSON.stringify([data]),
     })
