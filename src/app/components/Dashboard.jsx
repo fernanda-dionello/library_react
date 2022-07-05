@@ -8,6 +8,7 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
+import { useStyles } from './Dashboard.styles'
 
 /**
  * @param {Object} [list: any[], idKey: string, cellTitle: string[], cellsBind: string[]] builder
@@ -17,17 +18,16 @@ import Typography from '@material-ui/core/Typography';
  */
 
 const Dashboard = ({ builder, onEdit, onDelete }) => {
+  const dashboard = useStyles();
   return (
     <>
       <Box display="flex">
-        <Box flexGrow={1}>
-          <Typography component="h2" variant="h6" color="primary" gutterBottom>
+        <Box className={dashboard.header} flexGrow={1}>
+          <Typography className={dashboard.clientsTitle} component="h2" variant="h6" color="primary" gutterBottom>
             CLIENTS
           </Typography>
-        </Box>
-        <Box>
-          <Link to="/create">
-            <Button variant="contained" color="primary">
+          <Link className={dashboard.createLink} to="/create">
+            <Button className={dashboard.createButton} variant="contained">
               CREATE
             </Button>
           </Link>
@@ -36,13 +36,13 @@ const Dashboard = ({ builder, onEdit, onDelete }) => {
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            {builder.cellTitle?.map(title => <TableCell align="center" key={title}>{title}</TableCell>)}
+            {builder.cellTitle?.map(title => <TableCell className={dashboard.headerItem} key={title}>{title}</TableCell>)}
           </TableRow>
         </TableHead>
         <TableBody>
           {builder.list?.map((item, index) => (
             <TableRow key={index}>
-              {builder.cellsBind?.map(cell => <TableCell align="center" key={item[cell]}>{item[cell]}</TableCell>)}
+              {builder.cellsBind?.map(cell => <TableCell className={dashboard.items} key={item[cell]}>{item[cell]}</TableCell>)}
               <TableCell align="center">
                 <ButtonGroup color="primary" aria-label="outlined primary button group">
                   <Button onClick={() => onEdit(item[builder.idKey])}>Edit</Button>

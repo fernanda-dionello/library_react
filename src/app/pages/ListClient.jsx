@@ -1,32 +1,12 @@
 import React, { useEffect, useState, useMemo } from "react";
-import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 import TableContainer from '@material-ui/core/TableContainer';
 import Dashboard from "../components/Dashboard";
-
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
-  container: {
-    marginTop: theme.spacing(2),
-  },
-  paper: {
-    padding: theme.spacing(2),
-    color: theme.palette.text.secondary,
-  },
-}));
+import { useStyles } from './ListClient.styles';
 
 function Clients({ clientService, loginService }) {
-  const classes = useStyles();
+  const clientList = useStyles();
 
   const [clients, setClients] = useState([]);
   
@@ -65,9 +45,9 @@ function Clients({ clientService, loginService }) {
   }
 
   return (
-    <div className={classes.root}>
-      <Container className={classes.container} maxWidth="lg">
-        <Paper className={classes.paper}>
+    <div className={clientList.root}>
+      <Container className={clientList.container} maxWidth="lg">
+        <Paper className={clientList.paper}>
           <TableContainer component={Paper}>
             <Dashboard
               builder={defineDashboard}

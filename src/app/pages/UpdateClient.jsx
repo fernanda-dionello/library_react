@@ -1,34 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import { useParams } from 'react-router-dom';
-
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(3),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
+import { useStyles } from './UpdateClient.styles';
 
 function UpdateClient() {
-  const classes = useStyles();
+  const updateStyles = useStyles();
 
   const { id } = useParams();
   useEffect(() => {
@@ -77,12 +57,12 @@ function UpdateClient() {
   const [cellphone, setCellphone] = useState('');
 
   return (
-    <Container maxWidth="xs">
-      <div className={classes.paper}>
-        <Typography component="h1" variant="h5">
-          User
+    <Container className={updateStyles.container} maxWidth="xs">
+      <div className={updateStyles.paper}>
+        <Typography className={updateStyles.client} component="h1" variant="h5">
+          Client
         </Typography>
-        <form className={classes.form} onSubmit={handleSubmit}>
+        <form className={updateStyles.form} onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -115,7 +95,7 @@ function UpdateClient() {
             fullWidth
             variant="contained"
             color="primary"
-            className={classes.submit}
+            className={updateStyles.submit}
           >
             Update
           </Button>
