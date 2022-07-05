@@ -9,7 +9,8 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
-import { useStyles } from './Dashboard.styles'
+import { useStyles, theme } from './Dashboard.styles'
+import { ThemeProvider } from "@material-ui/core";
 
 /**
  * @param {Object} [list: any[], idKey: string, cellTitle: string[], cellsBind: string[]] builder
@@ -44,10 +45,12 @@ const Dashboard = ({ builder, onEdit, onDelete }) => {
               <TableRow key={index}>
                 {builder.cellsBind?.map(cell => <TableCell className={dashboard.items} key={item[cell]}>{item[cell]}</TableCell>)}
                 <TableCell align="center">
-                  <ButtonGroup color="primary" aria-label="outlined primary button group">
-                    <Button onClick={() => onEdit(item[builder.idKey])}>Edit</Button>
-                    <Button onClick={() => onDelete(item[builder.idKey])}>Del</Button>
-                  </ButtonGroup>
+                  <ThemeProvider theme={theme}>
+                    <ButtonGroup color={theme.primary} aria-label="outlined primary button group">
+                      <Button onClick={() => onEdit(item[builder.idKey])}>Edit</Button>
+                      <Button onClick={() => onDelete(item[builder.idKey])}>Del</Button>
+                    </ButtonGroup>
+                  </ThemeProvider>
                 </TableCell>
               </TableRow>
             ))}

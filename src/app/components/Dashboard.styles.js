@@ -1,4 +1,14 @@
 import { makeStyles } from '@material-ui/core/styles';
+import { createTheme } from '@material-ui/core/styles';
+
+export const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#0971f1',
+        darker: '#053e85',
+      }
+    },
+  });
 
 export const useStyles = makeStyles((theme) => ({
     container: {

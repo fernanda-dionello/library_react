@@ -7,6 +7,7 @@ import Container from '@material-ui/core/Container';
 import { useParams } from 'react-router-dom';
 import { useStyles } from './UpdateClient.styles';
 
+
 function UpdateClient() {
   const updateStyles = useStyles();
 
@@ -94,7 +95,6 @@ function UpdateClient() {
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
             className={updateStyles.submit}
           >
             Update

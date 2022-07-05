@@ -73,7 +73,6 @@ function CreateClient() {
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
             className={createStyle.submit}
           >
             Create
