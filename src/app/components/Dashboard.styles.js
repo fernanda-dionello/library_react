@@ -1,6 +1,9 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme) => ({
+    container: {
+        overflowX: "hidden"
+    },
     headerItem: {
         textAlign: "center",
         color: "#fff",
@@ -30,5 +33,8 @@ export const useStyles = makeStyles((theme) => ({
         letterSpacing: "1px",
         margin: "1% 3%",
         color: "#5d5e60"
+    },
+    grid: {
+        overflowX: "auto"
     }
 }));
